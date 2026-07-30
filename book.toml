@@ -1,0 +1,15 @@
+[book]
+authors = ["Abhinandh S"]
+language = "en"
+src = "docs"
+# title = "Pikachu Bot"
+
+[output.html]
+site-url = "/cmapaperbot/"
+additional-css = ["extras/css/comment-box.css"]
+additional-js = ["extras/js/comment-box.js"]
+
+[output.html.print]
+enable = true    # include support for printable output
+page-break = false # insert page-break after each chapter
+
