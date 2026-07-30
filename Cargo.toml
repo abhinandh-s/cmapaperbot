@@ -14,7 +14,7 @@ reqwest = { version = "0.13", features = ["json"] }
 urlencoding = "2.1"
 
 # `@deno/wasmbuild@0.22.0` supports `wasm-bindgen = "=0.2.108"`
-wasm-bindgen = "=0.2.108"
+wasm-bindgen = "=0.2.126"
 wasm-bindgen-futures = "0.4.58"
 gloo-console = "0.3"
 gloo-timers = { version = "0.3", features = ["futures"] }
