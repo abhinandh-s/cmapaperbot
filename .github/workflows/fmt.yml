@@ -1,8 +1,10 @@
 name: Lint & Fmt
 on:
   push:
-    paths-ignore:
-      - 'docs/**'
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'deno.json'
   pull_request:
   workflow_dispatch:
 
