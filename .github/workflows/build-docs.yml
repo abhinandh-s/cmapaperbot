@@ -3,9 +3,9 @@ name: Deploy mdBook site to Pages
 
 on:
   push:
-    paths-ignore:
-      - 'src/**'
-      - 'tests/**'
+    paths:
+      - 'docs/**'
+      - 'book.toml'
     branches: ["master"]
   workflow_dispatch:
 
