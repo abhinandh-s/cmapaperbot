@@ -24,6 +24,15 @@ bot.command("search", async (ctx) => {
   });
 });
 
+bot.command("to_friend", async (ctx) => {
+  const keyboard = new InlineKeyboard()
+    .switchInlineChosen("🔍 Search Papers", "p6 ");
+
+  await ctx.reply("Click the button below to search:", {
+    reply_markup: keyboard
+  });
+});
+
 async function startHandler(
   ctx: Context,
   docType: DocType
