@@ -17,7 +17,7 @@ bot.use(inlineQueryHandler);
 
 bot.command("search", async (ctx) => {
   const keyboard = new InlineKeyboard()
-    .switchInlineCurrent("🔍 Search Papers", "p6 ");
+    .switchInlineCurrent("🔍 Search Papers", "p");
 
   await ctx.reply("Click the button below to search:", {
     reply_markup: keyboard
@@ -26,7 +26,7 @@ bot.command("search", async (ctx) => {
 
 bot.command("to_friend", async (ctx) => {
   const keyboard = new InlineKeyboard()
-    .switchInline("🔍 Search Papers", "p6 ");
+    .switchInline("🔍 Search Papers", "p");
 
   await ctx.reply("Click the button below to search:", {
     reply_markup: keyboard
