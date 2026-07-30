@@ -6,7 +6,6 @@ import { batchCmd } from "./cmd/batch.ts";
 import { inlineQueryHandler } from "./inline.ts";
 import { formatTerm } from "./utils.ts";
 import { renderCaption, renderSyllabusShort } from "./render.ts";
-
 import { ACADEMIC_DATA, FLATTENED_FILE_IDS } from "./db/mod.ts";
 
 const bot = new Bot(Deno.env.get("TELEGRAM_TOKEN") || "");
@@ -15,6 +14,15 @@ bot.use(adminCmds);
 bot.use(helpCmd);
 bot.use(batchCmd);
 bot.use(inlineQueryHandler);
+
+bot.command("search", async (ctx) => {
+  const keyboard = new InlineKeyboard()
+    .switchInlineCurrent("🔍 Search Papers", "p6 ");
+
+  await ctx.reply("Click the button below to search:", { 
+    reply_markup: keyboard 
+  });
+});
 
 async function startHandler(
   ctx: Context,
