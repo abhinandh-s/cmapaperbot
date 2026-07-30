@@ -124,7 +124,7 @@ bot.callbackQuery(
   async (ctx) => {
     const [, docType, paperId, term] = ctx.callbackQuery.data.split(":");
 
-    await ctx.editMessageReplyMarkup(); // closes the keyboard
+    // await ctx.editMessageReplyMarkup(); // closes the keyboard
 
     const key = `${paperId}-${term}-${docType}`;
     const files = getFiles(
@@ -149,7 +149,7 @@ bot.callbackQuery(
       });
     }
 
-    await ctx.deleteMessage(); // delete "Select term:" msg
+    // await ctx.deleteMessage(); // delete "Select term:" msg
   }
 );
 
