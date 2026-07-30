@@ -19,8 +19,8 @@ bot.command("search", async (ctx) => {
   const keyboard = new InlineKeyboard()
     .switchInlineCurrent("🔍 Search Papers", "p6 ");
 
-  await ctx.reply("Click the button below to search:", { 
-    reply_markup: keyboard 
+  await ctx.reply("Click the button below to search:", {
+    reply_markup: keyboard
   });
 });
 
