@@ -189,4 +189,62 @@ fn main() {
     let level = level_of("P20");
     println!("{level}");
 }
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+enum DocType {
+    Pyq,
+    Mqp,
+    Ptp,
+}
+
+impl DocType {
+    // only matches exact word
+    fn from_str(word: &str) -> Option<DocType> {
+        match word {
+            "pyq" | "pyqs" | "previous" => Some(DocType::Pyq),
+            "mqp" | "mqps" | "model" | "mock" => Some(DocType::Mqp),
+            "ptp" | "ptps" | "practice" => Some(DocType::Ptp),
+            _ => None,
+        }
+    }
+}
+
+fn detect_doc_type(text: &str) -> Option<DocType> {
+    text.split_whitespace().find_map(DocType::from_str)
+}
+macro_rules! paper_words {
+    ( $($s:literal),* $(,)? ) => {
+        fn paper_from_str(word: &str) -> Option<&str> {
+            match word {
+                $(
+                    stringify!($s) | concat!("p", $s) => Some(concat!("p", $s)),
+                )*
+                _ => None,
+            }
+        }
+    };
+}
+
+paper_words! {
+        1, 2, 3, 4
+}
+
+fn detect_paper(text: &str) -> Option<&str> {
+    text.split_whitespace().find_map(paper_from_str)
+}
+
+fn main() {
+    let text = "this is p2 a mock test paper";
+
+    let doc_type = detect_doc_type(text);
+
+    assert_eq!(doc_type, Some(DocType::Mqp));
+    println!("Detected: {:?}", doc_type);
+
+    let result = detect_paper(text);
+
+    assert_eq!(result, Some("p2"));
+    println!("{:?}", result);
+}
+
 */
