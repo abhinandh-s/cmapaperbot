@@ -4,6 +4,15 @@ export const helpCmd = new Composer();
 
 const ADMIN_ID = Number(Deno.env.get("ADMIN_ID"));
 
+helpCmd.command("donate", async (ctx) => {
+  await ctx.reply(
+    "Hey everyone! I'm keeping this bot free for everyone, but it does cost me to keep the servers running. If you'd like to help out with a small donation, I'd really appreciate it ❤️\n\nUPI ID: <code>abhinandh.s@superyes</code>\n\nFor now, UPI is the easiest option. But if you prefer another method, just hit me up on DM @abhinandhsuby.",
+    {
+      parse_mode: "HTML"
+    }
+  );
+});
+
 helpCmd.command("admin", async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) {
     return;
