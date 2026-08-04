@@ -1,6 +1,6 @@
 import { DocType } from "./types.ts";
 import { formatTerm, getPaperDetails } from "./utils.ts";
-import { level_in_blockquotes, level_of, renderSet, renderSyllabus, renderSyllabusShort } from "../lib/cmapaperbot.js";
+import { level_in_blockquotes, renderSet } from "../lib/cmapaperbot.js";
 
 // | CMA INTERMEDIATE ”
 // #PYQ
@@ -17,7 +17,7 @@ export function renderCaption(
 ): string {
   const paper = getPaperDetails(id);
   let caption = "";
-  caption += `${renderLevel(id)}\n`;
+  caption += `${level_in_blockquotes(id)}\n`;
   caption += `#${docType.toUpperCase()}\n`;
   caption += `📄 paper: ${paper.name}\n`;
   caption += `🗂️ paper no: ${id.replace("p", "")}\n`;
