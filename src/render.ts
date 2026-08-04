@@ -1,36 +1,6 @@
 import { DocType } from "./types.ts";
 import { formatTerm, getPaperDetails } from "./utils.ts";
-import { paperIdToLevel } from "paper-utils";
-
-export function renderLevel(id: string): string {
-  return `<blockquote>CMA ${paperIdToLevel(id).toUpperCase()}</blockquote>`;
-}
-
-export function renderSet(id: string): string {
-  return id === "s1"
-    ? "set: 1"
-    : id === "s2"
-    ? "set: 2"
-    : id === "s1a"
-    ? "set: 1 solution"
-    : id === "s2a"
-    ? "set: 2 solution"
-    : id === "q"
-    ? "type: Question Paper"
-    : id === "a"
-    ? "type: Answer Key"
-    : id === "sa"
-    ? "type: Suggested Answer"
-    : id;
-}
-
-export function renderSyllabus(ctx: string): string {
-  return ctx === "syl16" ? "syllabus: 2016" : ctx === "syl22" ? "syllabus: 2022" : ctx;
-}
-
-export function renderSyllabusShort(ctx: string): string {
-  return ctx === "syl16" ? "2016" : ctx === "syl22" ? "2022" : ctx;
-}
+import { level_in_blockquotes, level_of, renderSet, renderSyllabus, renderSyllabusShort } from "../lib/cmapaperbot.js";
 
 // | CMA INTERMEDIATE ”
 // #PYQ
@@ -77,12 +47,3 @@ export function renderCaptionFileRecord(
     file.name
   );
 }
-
-/*
-// adds
-console.log(add(1, 1));
-
-// greets
-const greeter = new Greeter("world");
-console.log(greeter.greet());
-*/
