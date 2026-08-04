@@ -1,5 +1,5 @@
 import { assertEquals } from "@std/assert";
-import { level_in_blockquotes, level_of, renderSet } from "../lib/cmapaperbot.js";
+import { level_in_blockquotes, level_of, renderSet, renderSyllabus, renderSyllabusShort } from "../lib/cmapaperbot.js";
 
 Deno.test("level from paper id test", () => {
   const l1 = level_of("3");
@@ -89,4 +89,16 @@ Deno.test("level_in_blockquotes - Unknown paper fallback", () => {
     level_in_blockquotes(""),
     "<blockquote>CMA UNKNOWN</blockquote>"
   );
+});
+
+Deno.test("renderSyllabus - full syllabus format", () => {
+  assertEquals(renderSyllabus("syl16"), "syllabus: 2016");
+  assertEquals(renderSyllabus("syl22"), "syllabus: 2022");
+  assertEquals(renderSyllabus("custom"), "custom");
+});
+
+Deno.test("renderSyllabusShort - year-only format", () => {
+  assertEquals(renderSyllabusShort("syl16"), "2016");
+  assertEquals(renderSyllabusShort("syl22"), "2022");
+  assertEquals(renderSyllabusShort("custom"), "custom");
 });
