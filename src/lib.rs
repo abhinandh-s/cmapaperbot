@@ -17,6 +17,14 @@ pub fn render_set(id: &str) -> String {
     };
     result.into()
 }
+// ```ts
+// export function level_in_blockquotes(id: string): string;
+// ```
+#[wasm_bindgen]
+pub fn level_in_blockquotes(id: &str) -> String {
+    let level = level_of().to_uppercase()
+    format!("<blockquote>CMA {}</blockquote>", level)
+}
 
 // ```ts
 // export function level_of(id: string): string;
