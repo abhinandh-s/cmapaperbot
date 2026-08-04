@@ -1,6 +1,24 @@
 use wasm_bindgen::prelude::*;
 
 // ```ts
+// export function renderSet(id: string): string;
+// ```
+#[wasm_bindgen(js_name = renderSet)]
+pub fn render_set(id: &str) -> String {
+    let result = match id {
+        "s1" => "set: 1",
+        "s2" => "set: 2",
+        "s1a" => "set: 1 solution",
+        "s2a" => "set: 2 solution",
+        "q" => "type: Question Paper",
+        "a" => "type: Answer Key",
+        "sa" => "type: Suggested Answer",
+        _ => id,
+    };
+    result.into()
+}
+
+// ```ts
 // export function level_of(id: string): string;
 // ```
 #[wasm_bindgen]
