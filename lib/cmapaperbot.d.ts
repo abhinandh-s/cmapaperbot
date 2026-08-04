@@ -9,3 +9,5 @@ export enum Level {
 }
 
 export function level_of(id: string): string;
+
+export function renderSet(id: string): string;
