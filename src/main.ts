@@ -5,8 +5,9 @@ import { adminCmds } from "./cmd/admin.ts";
 import { batchCmd } from "./cmd/batch.ts";
 import { inlineQueryHandler } from "./inline.ts";
 import { formatTerm } from "./utils.ts";
-import { renderCaption, renderSyllabusShort } from "./render.ts";
+import { renderCaption } from "./render.ts";
 import { ACADEMIC_DATA, FLATTENED_FILE_IDS } from "./db/mod.ts";
+import { renderSyllabusShort } from "../lib/cmapaperbot.js";
 
 const bot = new Bot(Deno.env.get("TELEGRAM_TOKEN") || "");
 
