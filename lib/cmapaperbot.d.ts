@@ -8,6 +8,8 @@ export enum Level {
   Final = 2
 }
 
+export function level_in_blockquotes(id: string): string;
+
 export function level_of(id: string): string;
 
 export function renderSet(id: string): string;
