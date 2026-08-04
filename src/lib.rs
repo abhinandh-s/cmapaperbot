@@ -22,7 +22,7 @@ pub fn render_set(id: &str) -> String {
 // ```
 #[wasm_bindgen]
 pub fn level_in_blockquotes(id: &str) -> String {
-    let level = level_of().to_uppercase()
+    let level = level_of(id).to_uppercase();
     format!("<blockquote>CMA {}</blockquote>", level)
 }
 
