@@ -13,3 +13,7 @@ export function level_in_blockquotes(id: string): string;
 export function level_of(id: string): string;
 
 export function renderSet(id: string): string;
+
+export function renderSyllabus(syl: string): string;
+
+export function renderSyllabusShort(syl: string): string;
