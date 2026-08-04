@@ -1,5 +1,5 @@
 import { assertEquals } from "@std/assert";
-import { level_of, renderSet, level_in_blockquotes } from "../lib/cmapaperbot.js";
+import { level_in_blockquotes, level_of, renderSet } from "../lib/cmapaperbot.js";
 
 Deno.test("level from paper id test", () => {
   const l1 = level_of("3");
@@ -34,59 +34,59 @@ Deno.test("renderSet - fallback string", () => {
 Deno.test("level_in_blockquotes - Foundation level papers", () => {
   assertEquals(
     level_in_blockquotes("P1"),
-    "<blockquote>CMA FOUNDATION</blockquote>",
+    "<blockquote>CMA FOUNDATION</blockquote>"
   );
   assertEquals(
     level_in_blockquotes("p4"),
-    "<blockquote>CMA FOUNDATION</blockquote>",
+    "<blockquote>CMA FOUNDATION</blockquote>"
   );
   assertEquals(
     level_in_blockquotes("2"),
-    "<blockquote>CMA FOUNDATION</blockquote>",
+    "<blockquote>CMA FOUNDATION</blockquote>"
   );
 });
 
 Deno.test("level_in_blockquotes - Intermediate level papers", () => {
   assertEquals(
     level_in_blockquotes("P5"),
-    "<blockquote>CMA INTERMEDIATE</blockquote>",
+    "<blockquote>CMA INTERMEDIATE</blockquote>"
   );
   assertEquals(
     level_in_blockquotes("p12"),
-    "<blockquote>CMA INTERMEDIATE</blockquote>",
+    "<blockquote>CMA INTERMEDIATE</blockquote>"
   );
   assertEquals(
     level_in_blockquotes("8"),
-    "<blockquote>CMA INTERMEDIATE</blockquote>",
+    "<blockquote>CMA INTERMEDIATE</blockquote>"
   );
 });
 
 Deno.test("level_in_blockquotes - Final level papers", () => {
   assertEquals(
     level_in_blockquotes("P13"),
-    "<blockquote>CMA FINAL</blockquote>",
+    "<blockquote>CMA FINAL</blockquote>"
   );
   assertEquals(
     level_in_blockquotes("p20A"),
-    "<blockquote>CMA FINAL</blockquote>",
+    "<blockquote>CMA FINAL</blockquote>"
   );
   assertEquals(
     level_in_blockquotes("20B"),
-    "<blockquote>CMA FINAL</blockquote>",
+    "<blockquote>CMA FINAL</blockquote>"
   );
 });
 
 Deno.test("level_in_blockquotes - Unknown paper fallback", () => {
   assertEquals(
     level_in_blockquotes("P99"),
-    "<blockquote>CMA UNKNOWN</blockquote>",
+    "<blockquote>CMA UNKNOWN</blockquote>"
   );
   assertEquals(
     level_in_blockquotes("invalid"),
-    "<blockquote>CMA UNKNOWN</blockquote>",
+    "<blockquote>CMA UNKNOWN</blockquote>"
   );
   assertEquals(
     level_in_blockquotes(""),
-    "<blockquote>CMA UNKNOWN</blockquote>",
+    "<blockquote>CMA UNKNOWN</blockquote>"
   );
 });
