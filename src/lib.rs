@@ -42,6 +42,24 @@ pub fn level_of(id: &str) -> String {
         .unwrap_or_else(|| "unknown".to_string())
 }
 
+#[wasm_bindgen(js_name = renderSyllabus)]
+pub fn render_syllabus(syl: &str) -> String {
+    match syl {
+        "syl16" => "syllabus: 2016".to_string(),
+        "syl22" => "syllabus: 2022".to_string(),
+        _ => syl.to_string(),
+    }
+}
+
+#[wasm_bindgen(js_name = renderSyllabusShort)]
+pub fn render_syllabus_short(syl: &str) -> String {
+    match syl {
+        "syl16" => "2016".to_string(),
+        "syl22" => "2022".to_string(),
+        _ => syl.to_string(),
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 struct Paper(&'static str);
 
