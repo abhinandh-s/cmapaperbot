@@ -1,5 +1,8 @@
 use wasm_bindgen::prelude::*;
 
+pub mod consts;
+pub use consts::*;
+
 // ```ts
 // export function renderSet(id: string): string;
 // ```
