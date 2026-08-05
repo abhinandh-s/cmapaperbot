@@ -19,3 +19,9 @@ pub fn status() -> String {
 pub fn help() -> String {
     include_str!("../docs/help.md").into()
 }
+
+
+#[wasm_bindgen]
+pub fn start() -> String {
+    include_str!("../docs/start.txt").into()
+}
