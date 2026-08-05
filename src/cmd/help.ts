@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import { privacy_policy, support, status, help } from "../../lib/cmapaperbot.js";
+import { help, privacy_policy, status, support } from "../../lib/cmapaperbot.js";
 
 export const helpCmd = new Composer();
 
