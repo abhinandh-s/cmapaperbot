@@ -1,4 +1,4 @@
-import { DocType } from "./types.ts";
+import { DocType } from "./db/mod.ts";
 import { formatTerm, getPaperDetails } from "./utils.ts";
 import { level_in_blockquotes, renderSet } from "../lib/cmapaperbot.js";
 
