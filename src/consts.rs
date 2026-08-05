@@ -9,3 +9,13 @@ pub fn privacy_policy() -> String {
 pub fn support() -> String {
     include_str!("../docs/support.md").into()
 }
+
+#[wasm_bindgen]
+pub fn status() -> String {
+    include_str!("../docs/status.md").into()
+}
+
+#[wasm_bindgen]
+pub fn help() -> String {
+    include_str!("../docs/help.md").into()
+}
