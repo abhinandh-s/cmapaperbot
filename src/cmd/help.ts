@@ -167,9 +167,9 @@ I gain absolutely <b>zero</b> monetary benefit from this. This is a passion proj
 });
 */
 
-helpCmd.command('privacy', async (ctx) => {
+helpCmd.command("privacy", async (ctx) => {
   const richPayload: InputRichMessage = {
-    markdown: privacy_policy(),
-  }
-  await ctx.replyWithRichMessage(richPayload)
-})
+    markdown: privacy_policy()
+  };
+  await ctx.replyWithRichMessage(richPayload);
+});
