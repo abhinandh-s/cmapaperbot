@@ -1,0 +1,1 @@
+export type DocType = "pyq" | "mqp" | "ptp";
