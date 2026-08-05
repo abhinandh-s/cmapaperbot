@@ -19,3 +19,5 @@ export function renderSet(id: string): string;
 export function renderSyllabus(syl: string): string;
 
 export function renderSyllabusShort(syl: string): string;
+
+export function support(): string;
