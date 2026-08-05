@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import { help, privacy_policy, status, support } from "../../lib/cmapaperbot.js";
+import { start, help, privacy_policy, status, support } from "../../lib/cmapaperbot.js";
 
 export const helpCmd = new Composer();
 
@@ -13,20 +13,14 @@ helpCmd.command("admin", async (ctx) => {
 });
 
 helpCmd.command("start", async (ctx) => {
-  await ctx.reply(
-    "Available Commands:\n\n/pyq - access Previous Year Questions\n/mqp - access Model Question Papers\n/ptp - access Practice Test Papers",
-    {
-      parse_mode: "HTML"
-    }
-  );
+  await ctx.reply(start());
 });
 
-// Register handler
+
 helpCmd.command("help", async (ctx) => {
   const richPayload: InputRichMessage = {
     markdown: help()
   };
-
   await ctx.replyWithRichMessage(richPayload);
 });
 
