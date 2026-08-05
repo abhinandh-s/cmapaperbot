@@ -198,14 +198,14 @@ function buildSearchKeyboard(query: string, page: number) {
 
   // --- DYNAMIC PAGINATION LOGIC ---
   if (totalPages > 1) {
-      if (page > 0) {
-        keyboard.text("‹ Prev", `nav:${page - 1}:${query}`);
-      }
-      keyboard.text(`[ ${page + 1} / ${totalPages} ]`, "ignore");
+    if (page > 0) {
+      keyboard.text("‹ Prev", `nav:${page - 1}:${query}`);
+    }
+    keyboard.text(`[ ${page + 1} / ${totalPages} ]`, "ignore");
 
-      if (page < totalPages - 1) {
-        keyboard.text("Next ›", `nav:${page + 1}:${query}`);
-      }
+    if (page < totalPages - 1) {
+      keyboard.text("Next ›", `nav:${page + 1}:${query}`);
+    }
   }
 
   return { keyboard, totalMatches: matches.length };
