@@ -198,8 +198,6 @@ function buildSearchKeyboard(query: string, page: number) {
 
   // --- DYNAMIC PAGINATION LOGIC ---
   if (totalPages > 1) {
-    // PREVIOUS VERSION: Use simple layout if there are 5 or fewer pages
-    if (totalPages <= 5) {
       if (page > 0) {
         keyboard.text("‹ Prev", `nav:${page - 1}:${query}`);
       }
@@ -208,31 +206,6 @@ function buildSearchKeyboard(query: string, page: number) {
       if (page < totalPages - 1) {
         keyboard.text("Next ›", `nav:${page + 1}:${query}`);
       }
-    } // ADVANCED VERSION: Use 5-button layout for large datasets
-    else {
-      // 1. "First" Button
-      if (page > 1) {
-        keyboard.text("« 1", `nav:0:${query}`);
-      }
-
-      // 2. "Previous" Button
-      if (page > 0) {
-        keyboard.text(`‹ ${page}`, `nav:${page - 1}:${query}`);
-      }
-
-      // 3. "Current" Button
-      keyboard.text(`· ${page + 1} ·`, "ignore");
-
-      // 4. "Next" Button
-      if (page < totalPages - 1) {
-        keyboard.text(`${page + 2} ›`, `nav:${page + 1}:${query}`);
-      }
-
-      // 5. "Last" Button
-      if (page < totalPages - 2) {
-        keyboard.text(`${totalPages} »`, `nav:${totalPages - 1}:${query}`);
-      }
-    }
   }
 
   return { keyboard, totalMatches: matches.length };
@@ -302,70 +275,14 @@ bot.on("message:text", async (ctx) => {
   });
 });
 
-// ---------- WEBHOOK ----------
-const handleUpdate = webhookCallback(
-  bot,
-  "std/http"
-);
+const handleUpdate = webhookCallback(bot, "std/http");
 
 bot.catch((err) => {
   console.error(`Error while handling update ${err.ctx.update.update_id}:`, err.error);
   // The webhook will now return 200 OK to Telegram, stopping the retry loop.
 });
 
-// Add this helper function to send the comment to you
-async function handleCommentSubmission(req: Request) {
-  try {
-    const { text, _ } = await req.json();
-
-    const adminId = Deno.env.get("ADMIN_ID");
-
-    if (!adminId) {
-      throw new Error("ADMIN_CHAT_ID is not configured");
-    }
-
-    const message = `<b>Got Comment from website:</b>\n\n${text}`;
-
-    await bot.api.sendMessage(adminId, message, { parse_mode: "HTML" });
-
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*" // Required for CORS
-      }
-    });
-  } catch (err) {
-    console.error("Comment error:", err);
-    return new Response(JSON.stringify({ success: false }), {
-      status: 500,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      }
-    });
-  }
-}
-
 Deno.serve(async (req) => {
-  const url = new URL(req.url);
-
-  // Handle CORS preflight requests from the browser
-  if (req.method === "OPTIONS") {
-    return new Response(null, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
-    });
-  }
-
-  // Handle the comment API endpoint
-  if (req.method === "POST" && url.pathname === "/api/comment") {
-    return await handleCommentSubmission(req);
-  }
-
   // Handle Telegram Webhook
   if (req.method === "POST") {
     try {
@@ -375,6 +292,5 @@ Deno.serve(async (req) => {
       return new Response("Error processing update", { status: 500 });
     }
   }
-
   return new Response("Telegram Bot is running!");
 });
