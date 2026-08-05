@@ -22,6 +22,8 @@ export function renderSyllabus(syl: string): string;
 
 export function renderSyllabusShort(syl: string): string;
 
+export function start(): string;
+
 export function status(): string;
 
 export function support(): string;
