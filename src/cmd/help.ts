@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import { start, help, privacy_policy, status, support } from "../../lib/cmapaperbot.js";
+import { help, privacy_policy, start, status, support } from "../../lib/cmapaperbot.js";
 
 export const helpCmd = new Composer();
 
@@ -15,7 +15,6 @@ helpCmd.command("admin", async (ctx) => {
 helpCmd.command("start", async (ctx) => {
   await ctx.reply(start());
 });
-
 
 helpCmd.command("help", async (ctx) => {
   const richPayload: InputRichMessage = {
