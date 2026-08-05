@@ -1,4 +1,5 @@
 import { Composer } from "grammy";
+import { privacy_policy } from "../../lib/cmapaperbot.js";
 
 export const helpCmd = new Composer();
 
@@ -146,6 +147,7 @@ helpCmd.command("status", async (ctx) => {
   await ctx.replyWithRichMessage(richPayload);
 });
 
+/*
 helpCmd.command("privacy", async (ctx) => {
   await ctx.reply(
     `<b>Privacy policy</b>
@@ -163,13 +165,11 @@ I gain absolutely <b>zero</b> monetary benefit from this. This is a passion proj
     }
   );
 });
-/*
-bot.command('privacy', async (ctx) => {
-  const richPayload: InputRichMessage = {
-    markdown:
-      `# Privacy policy\n\nI gain absolutely **zero** monetary benefit from this. It is a passion project and I **do not** collect any user data.`,
-  }
+*/
 
+helpCmd.command('privacy', async (ctx) => {
+  const richPayload: InputRichMessage = {
+    markdown: privacy_policy(),
+  }
   await ctx.replyWithRichMessage(richPayload)
 })
-*/
