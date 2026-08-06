@@ -1,4 +1,4 @@
-Hey everyone! I'm keeping this bot free for everyone, but _it does cost me to keep the servers running_. If you'd like to help out with a small donation, I'd really appreciate it ❤️
+Hey everyone! I'm keeping this bot free for everyone, but <u>it does cost me to keep the servers running</u>. If you'd like to help out with a small donation, I'd really appreciate it ❤️
 
 **UPI ID**: `abhinandh.s@superyes`
 
