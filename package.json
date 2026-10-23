@@ -1,0 +1,11 @@
+{
+  "name": "cmapaperbot",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "grammy": "^1.38.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
