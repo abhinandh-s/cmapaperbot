@@ -28,6 +28,11 @@ jobs:
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2
 
+      - name: Trail run
+        run: |
+          cargo install wasm-tools
+          wasm-tools print lib/cmapaperbot.wasm
+
       - name: Setup Deno
         uses: denoland/setup-deno@v2
         with:
