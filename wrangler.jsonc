@@ -1,5 +1,5 @@
 {
-  "name": "cma-paper-bot",
+  "name": "cmapaperbot",
   "main": "src/main.ts",
   "compatibility_date": "2025-09-01",
   "compatibility_flags": ["nodejs_compat"],
