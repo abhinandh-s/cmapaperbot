@@ -1,7 +1,7 @@
 import { Composer, InputFile } from "grammy";
 import { env } from "cloudflare:workers";
 // @ts-ignore: bundled as binary via the "rules" entry in wrangler.jsonc
-import thumbnailData from "../../assets/thumbnail_320x320.jpeg";
+import thumbnailData from "../assets/thumbnail_320x320.jpeg";
 
 export const batchCmd = new Composer();
 
