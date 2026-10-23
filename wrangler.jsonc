@@ -4,6 +4,6 @@
   "compatibility_date": "2025-09-01",
   "compatibility_flags": ["nodejs_compat"],
   "observability": { "enabled": true },
-  "kv_namespaces": [{ "binding": "KV" }],
+  "kv_namespaces": [{ "binding": "KV", "id": "734eb1b09e24450f92ef2dd960028e2a" }],
   "rules": [{ "type": "Data", "globs": ["**/*.jpeg", "**/*.jpg"], "fallthrough": true }]
 }
