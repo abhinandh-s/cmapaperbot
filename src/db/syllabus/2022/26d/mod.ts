@@ -3,7 +3,7 @@
 import { FILE_IDS as MQPS } from "./mqps.ts";
 
 export const TERM_26D = {
-//  PYQS,
-//  PTPS,
+  //  PYQS,
+  //  PTPS,
   MQPS
 };
