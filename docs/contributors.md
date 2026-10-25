@@ -1,6 +1,6 @@
 # Contributors
 
-Here is a list of the contributors who have helped improving Pikachu. Big shout-out to them!
+Here is a list of the contributors who have helped improving `cmapaperbot`. Big shout-out to them!
 
 - Abhinandh S (github.com/abhinandh-s)
 
