@@ -16,6 +16,7 @@ export const PTP_FILE_IDS: Record<string, FileRecord> = {
 };
 
 export const MQP_FILE_IDS: Record<string, FileRecord> = {
+  ...SYLLABUS_2022.TERM_26D.MQPS,
   ...SYLLABUS_2022.TERM_26J.MQPS,
   ...SYLLABUS_2022.TERM_25D.MQPS,
   ...SYLLABUS_2022.TERM_25J.MQPS,
