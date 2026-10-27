@@ -7,6 +7,9 @@ export const FILE_IDS: Record<string, FileRecord[]> = {
   "p6-26d-mqp": [
     { name: "s1", id: "BQACAgUAAxkDAAJdhGrdmuca8hq_YPgldYxuDtZiv7urAALVJAACyILoVvHg4Ps2m6vnPQQ", syllabus: "2022" }
   ],
+  "p8-26d-mqp": [
+    { name: "s1", id: "BQACAgUAAxkDAAJdvmrgEuzA4qVvPLFFstMmzOUiDtUbAAJDIQAC5pIAAVfyAXaDVaVjRj0E", syllabus: "2022" }
+  ],
   "p10-26d-mqp": [
     { name: "s1", id: "BQACAgUAAxkDAAJdhmrdmun8tUXip-Y1hVrmMfYPRzBpAALWJAACyILoVkFfU-2--zHDPQQ", syllabus: "2022" }
   ],
